@@ -359,6 +359,24 @@
             background: rgba(59, 130, 246, 0.7);
         }
     </style>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
+        function showArticle(key) {
+            const article = articles[key];
+            if (article) {
+                document.getElementById('article-title').textContent = article.title;
+                document.getElementById('article-company').textContent = article.company;
+                document.getElementById('article-content').innerHTML = marked.parse(article.content);
+                document.getElementById('homepage').style.display = 'none';
+                document.getElementById('article-page').style.display = 'block';
+            }
+        }
+
+        function showHomepage() {
+            document.getElementById('article-page').style.display = 'none';
+            document.getElementById('homepage').style.display = 'block';
+        }
+
+</script>
 </head>
 <body>
     <div id="homepage">
